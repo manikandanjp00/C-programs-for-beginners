@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+    int num;
+    printf("Enter an Decimal number: ");
+    scanf("%d",&num);
+    int octal=0,rem,base=1;
+    while(num>0)
+    {
+        rem=num%8;
+        octal+=rem*base;
+        base*=10;
+        num/=8; 
+    }
+    printf("Octal Number of Decimal: %d",octal);
+    return 0;
+}

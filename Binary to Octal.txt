@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+int convert(int num)
+{
+    int dec=0,oct=0,base=0,rem;
+    while(num!=0)
+    {
+        dec+=(num%10)*pow(2,base);
+        num/=10;
+        base++;
+    }
+    base=1;
+    while(dec!=0)
+    {
+        oct+=(dec%8)*base;
+        dec/=10;
+        base*=10;
+    }
+    return oct;
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("%d",convert(n));
+    return 0;
+}

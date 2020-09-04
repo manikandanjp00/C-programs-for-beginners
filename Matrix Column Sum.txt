@@ -1,0 +1,42 @@
+#include <stdio.h>
+int printsum(int r,int c,int arr[r][c])
+{
+    int sum=0,val=0,i,j;
+    for(i=0;i<c;i++)
+    {
+        for(j=0;j<r;j++)
+        {
+            sum+=arr[j][i];
+        }
+        if(sum>val)
+        {
+            val=sum;
+        }
+        sum=0;
+    }
+    printf("\n%d",val);
+    return 0;
+}
+
+int main()
+{
+    int r,c,i,j;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    printsum(r,c,arr);
+}

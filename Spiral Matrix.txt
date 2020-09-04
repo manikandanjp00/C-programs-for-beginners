@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+    int n=2;
+    int size=2*n-1,i,j;
+    int arr[size][size];
+    int x=0,y=0,r=size,c=size;
+    while(x<r && y<c)
+    {
+        for(i=x;i<c;i++)
+        {
+            arr[x][i]=n;
+        }
+        x++;
+        for(i=x;i<r;i++)
+        {
+            arr[i][r-1]=n;
+        }
+        r--;
+        for(i=r-1;i>=y;i--)
+        {
+            arr[r][i]=n;
+        }
+        c--;
+        for(i=c-1;i>=y;i--)
+        {
+            arr[i][y]=n;
+        }
+        y++;
+        n--;
+    }
+    for(i=0;i<size;i++)
+    {
+        for(j=0;j<size;j++)
+        {
+            printf("%d",arr[i][j]);
+        }
+       printf("\n"); 
+    }
+    return 0;
+}
