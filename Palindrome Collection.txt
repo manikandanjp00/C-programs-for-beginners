@@ -1,0 +1,40 @@
+#include<stdio.h>
+int ispalindrome(int n)
+{
+    int rev=0,num=n;
+    while(n!=0)
+    {
+        rev=(rev*10)+n%10;
+        n/=10;
+    }
+    return (rev==num);
+}
+void palindromecollection(int min,int max)
+{
+    printf("Palindrome collection: \n");
+    for(int i=min;i<=max;i++)
+    {
+        if(ispalindrome(i)==1)
+            printf("%d ",i);
+    }
+}
+void printpalindrome(int num1,int dig)
+{
+    int max=1;
+    for(int i=0;i<dig;i++)
+    {
+        max*=10;
+    }
+    palindromecollection(num1,max);
+}
+int main()
+{
+    int num,n;
+    printf("Enter the initial number: ");
+    scanf("%d",&num);
+    printf("Enter number of digits: ");
+    scanf("%d",&n);
+    printpalindrome(num,n);
+    return 0;
+    
+}
