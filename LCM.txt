@@ -1,0 +1,43 @@
+#include<stdio.h> 
+int gcd(int a,int b)
+{
+    int temp;
+    if(b==0)
+        return a;
+    if(a<b)
+    {
+        temp=a;
+        a=b;
+        b=temp;
+    }
+    if(a%b==0)
+        return b;
+    else
+        return gcd(b,a%b);
+}
+int calculateLCM(int a,int b)
+{
+    return (a*b)/gcd(a,b);
+}   
+int calculateGenearlLCM(int arr[],int n)
+{
+    int x=calculateLCM(arr[0],arr[1]);
+    for(int i=2;i<n;i++)
+    {
+        x=calculateLCM(x,arr[i]);
+    }
+    return x;
+}
+int main()
+{
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter LCM array elements: ");
+    for(int i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    printf("LCM of given numbers is %d",calculateGenearlLCM(arr,n));
+    return 0;
+}
+
