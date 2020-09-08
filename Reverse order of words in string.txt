@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+int reverseword(char str[],int len)
+{
+    int i,ind=0,start,end;
+    char reverse[100];
+    start=len-1;
+    end=len-1;
+    while(start>0)
+    {
+        if(str[start]==' ')
+        {
+            i=start+1;
+            while(i<=end)
+            {
+                reverse[ind]=str[i];
+                ind++;
+                i++;
+            }
+            reverse[ind++]=' ';
+            end=start-1;
+        }
+        start--;
+    }
+    for(i=0;i<=end;i++)
+    {
+        reverse[ind++]=str[i];
+    }
+    reverse[ind]='\0';
+    printf("Reverse String: ");
+    printf("%s",reverse);
+    return 0;
+}
+int main()
+{
+    char str[]="I am an Engineer";
+    scanf("%[^\n]s",str);
+    reverseword(str,strlen(str));
+    return 0;
+}
